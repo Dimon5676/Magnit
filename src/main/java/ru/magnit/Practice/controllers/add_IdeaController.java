@@ -12,6 +12,9 @@ import ru.magnit.Practice.repos.IdeaRepository;
 @Controller
 public class add_IdeaController {
 
+    String status ="";
+    Long authorId = 0L;
+
     @Autowired
     private IdeaRepository ideaRepository;
 
@@ -24,15 +27,15 @@ public class add_IdeaController {
 
     @GetMapping("/add")
     public String addIdea(Model model) {
-        Iterable<Idea> addIdeas = ideaRepository.findAll ();
-        model.addAttribute ("addIdeas", addIdeas);
-        return "redirect:/home";
+        return "/add";
     }
     @PostMapping("/add")
-    public String addNewIdea(@RequestParam String title, @RequestParam String description, Model model) {
-        Idea idea = new Idea (title, description);
+    public String addNewIdea(@RequestParam String title, @RequestParam String description,
+                             @RequestParam String subdivision , Model model) {
+
+        Idea idea = new Idea (title,description,subdivision,status,authorId);
         ideaRepository.save (idea);
-        return "/agreePage";
+        return "redirect:/home";
     }
 
 }
