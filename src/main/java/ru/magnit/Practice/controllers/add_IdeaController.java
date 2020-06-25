@@ -26,7 +26,7 @@ public class add_IdeaController {
     public String addIdea(Model model) {
         Iterable<Idea> addIdeas = ideaRepository.findAll ();
         model.addAttribute ("addIdeas", addIdeas);
-        return "redirect:/add";
+        return "redirect:/home";
     }
     @PostMapping("/add")
     public String addNewIdea(@RequestParam String title, @RequestParam String description, Model model) {
