@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: inherit;
   font-weight: inherit;
 }
-@mixin anim($time,$delay){-webkit-transition: all $time easy $delay; -moz-transition:all $time easy $delay; -mz-transition: all $time easy $delay; -o-transition:all $time easy $delay; transition: all $time easy $delay;}
+@mixin anim($time,$delay){-webkit-transition: all $time ease $delay; -moz-transition:all $time ease $delay; -mz-transition: all $time ease $delay; -o-transition:all $time ease $delay; transition: all $time ease $delay;}
 @mixin anim_cubic($time,$delay){-webkit-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay; -moz-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay; -mz-transition: all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;
    transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;}
 @mixin rotate($deg){-moz-transform: rotate($deg); -ms-transform: rotate($deg); -webkit-transform: rotate($deg); -o-transform: rotate($deg); transform: rotate($deg);}
@@ -79,36 +79,26 @@ h1, h2, h3, h4, h5, h6 {
 @mixin flexbox(){display: -webkit-box; display: -moz-box;display: -ms-flexbox; display: -webkit-flex;display: flex; font-size: 0;}
 @mixin flexorder($val) { -webkit-box-ordinal-group: $val; -moz-box-ordinal-group:$val; -ms-flex-order:$val;-webkit-order: $val; order: $val;}
 
+
+$minwidth:320px;
+$mw:1170;
+$md1:$mw+12;
+$md2:992.98;
+$md3:760.98;
+$md4:479.98;
 /*--------------------*/
 body{
   line-height: 1.5;
   font-family: Tahoma, sans-serif;
 
 }
-p, img{
-  margin: 20px;
+img{
+  margin: 60px;
   position: relative;
   z-index: 3;
 }
 
-.conteiner{
-  margin: 0px auto;
-}
-@media (max-width:1200px){
-  .conteiner{
-    max-width: 970px;
-  }
-}
-@media (max-width:992px){
-  .conteiner{
-    max-width: 750px;
-  }
-}
-@media (max-width:750px){
-  .conteiner{
-    max-width: none;
-  }
-}
+
 .content{
   text-align: center;
   flex: 1 1 auto;
@@ -116,6 +106,9 @@ p, img{
   justify-content: center;
   align-items: center;
   padding: 45px;
+  &_p{
+    margin-bottom: 50px;
+  }
 
 }
 .header{
@@ -140,30 +133,33 @@ p, img{
     box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
     height: 60px;
     @include flexbox();
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
   }
   &_colum{}
   &_logo{
     display: inline-block;
     width: 172px;
-    img{max-width: 100%}
+    img{max-width: 100%};
   }
 }
 .menu-header{
   @include flexbox();
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  max-width: 670px;
+
   &_top{
     height: 25px;
     background-color: #f82f2f;
     @include flexbox();
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
   }
   &_icon{
-
     display: none;
     position: absolute;
     top: 18px;
@@ -185,10 +181,14 @@ p, img{
   &_menu{}
   &_list{
     @include flexbox();
-    li{margin: 0px 0px 0px 35px;}
+    li{margin: 0px 0px 0px 45px;
+    @media (max-width: $md1+px){
+    margin: 0px 0px 0px 35px;
+    }}
+
   }
   &_link{
-       color: #646667;
+    color: #646667;
     font-size:12px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -206,6 +206,7 @@ p, img{
       height: 1px;
       background-color: #ee0c0c;
       bottom: 0;
+      @include anim(0.3s, 0s);
     }
     &:hover{
       color: #f06d6d;
@@ -243,12 +244,14 @@ p, img{
     justify-content: center;
     align-items: center;
     padding: 30px 10px;
+
   }
   &_content{
     background-color: #fff;
     color: #000;
     max-width: 500px;
     padding: 30px;
+      box-shadow: inset 0 0 10px;
     position: relative;
     transition: all 0.8s ease 0s;
     opacity: 0;
@@ -261,9 +264,46 @@ p, img{
     font-size: 20px;
     color: #000;
     text-decoration: none;
+    padding: 5px;
   }
-  &_title{}
-  &_text{}
+  &_title{
+    text-align: center;
+    font-size: 21px;
+    font-weight: 700;
+  }
+  &_text{
+    padding: 15px;
+    width: 250px;
+    input{
+      box-shadow: inset 0 0 10px rgba(338, 98, 98, 0.4);
+      padding: 12px;
+      border: 1px solid rgba(338, 98, 98, 0.4);
+      width: 200px;
+    }
+    &_type{
+      margin-bottom: 10px;
+    }
+    &_go{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+    &_vev{
+      padding: 12px;
+    }
+    &_btn{
+      font-size: 15px;
+      font-weight: 600;
+      background-color: rgba(206,182,209, 0.4);
+      color: #2e0212;
+      border: 1px solid rgba(206,182,209, 0.8);
+      padding: 5px;
+      margin-top: 7px;
+      width: 100px;
+
+    }
+  }
   &_area{
     position: absolute;
     width: 100%;

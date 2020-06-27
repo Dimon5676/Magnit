@@ -43,8 +43,8 @@
       </header>
         <div class="content">
           <div class="conteiner">
-         <img src="img/background.png" alt="ИТ для людей">
-          <p>«IT для людей» - проект, направленный на упрощение IT процедур <br>
+         <img class="content_img"src="img/background.png" alt="ИТ для людей">
+          <p class="content_p">«IT для людей» - проект, направленный на упрощение IT процедур <br>
 – сделать все процедуры максимально прозрачными, <br>
 интуитивными и быстрыми для конечного пользователя. <br>
 Активное обучение сотрудников, повышение их общей грамотности в <br>
@@ -67,7 +67,21 @@
                 <a href="#header" class="popup_close">X</a>
                 <div class="popup_title">Вход</div>
                 <div class="popup_text">
-                  
+                    <form  action="#" method="post">
+                      <div class="popup_text_vev">
+                        <p class="popup_text_type">Логин или email:</p>
+                        <input class="popup_text_login" placeholder="Введите логин..." type="text" name="username" tabindex="1" value="">
+                      </div>
+                      <div class="popup_text_vev" >
+                        <p class="popup_text_type">Пароль:</p>
+                        <input  class="popup_text_pass" placeholder="Введите пароль..." type="password" name="userpass" tabindex="2" value="">
+                      </div>
+                      <div class="popup_text_go">
+                        <button class="popup_text_btn" tabindex="3" type="submit">Войти</button>
+                        <a class="popup_text_regist"href="regist.html">Регистрация</a>
+                      </div>
+                    </form>
+
                 </div>
               </div>
             </div>
