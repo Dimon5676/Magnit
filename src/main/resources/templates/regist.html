@@ -2,15 +2,65 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Каталог идей -магнит </title>
+    <link rel="stylesheet" href="css/slylereg.css">
+    <title> Регистрация </title>
     <link rel="icon" href="img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maxim-scale=1.0, user-scalable=0 /">
-
   </head>
   <body>
-    <form class="" action="index.html" method="post">
-      kjuby
+
+  <form class="subform" action="/" method="post">
+  <div class="form_logo">
+        <a href="home.html"> <img class="logo" src="img/logo.png" alt=""></a>
+
+  </div>
+
+    <h1>Регистрация</h1>
+    <div class="form_group">
+      <label for="q">Фамилия:</label>
+      <input id="q" class="input_text" placeholder="Введите фамилию..." type="text" name="userfamil" tabindex="1" >
+    </div>
+    <div class="form_group">
+      <label for="rr">Имя:</label>
+      <input id="rr"class="input_text" placeholder="Введите имя..." type="text" name="username" tabindex="2" >
+    </div>
+    <div class="form_group">
+      <label for="nn">Логин:</label>
+    <input id="nn" class="input_text" placeholder="Введите логин..." type="text" name="username" tabindex="3" value="">
+    </div>
+    <div class="form_group">
+      <label for="mm">Пароль:</label>
+      <input  id="mm" class="input_text" placeholder="Введите пароль..." type="password" name="userpass" tabindex="4" value="">
+    </div>
+    <div class="form_group">
+        <label for=""> Пол:</label>
+      <label>
+        <input checked type="radio" name="gender" value="male" tabindex="5" > Мужской
+      </label>
+      <label>
+        <input type="radio" name="gender" value="female" tabindex="6"> Женский
+      </label>
+    </div>
+    <div class="form_group">
+      <label for="rt">Пароль еще раз:</label>
+        <input  id="rt" class="input_text" placeholder="Подтвердите пароль..." type="password" name="userpass" tabindex="7" value="">
+    </div>
+    <div class="form_group">
+      <label for="r">Адрес электронной почты:</label>
+      <input id="r"class="input_text" placeholder="Введите email..." type="text" name="usermail" tabindex="8" value="">
+    </div>
+    <div class="trip">
+      <input type="checkbox" name="sol" value="yes" tabindex="9">
+      <p class="trip_p"> Я согласен с <a href=""> правилами пользования</a></p>
+    </div>
+    <div class="trip">
+      <input type="checkbox" name="por" value="yes" tabindex="10">
+      <p class="trip_p"> Я согласен с <a href=""> обработкой персональных данных</a></p>
+    </div>
+    <div >
+    <button class="form_group_btn" type="button" name="">Регистрация</button>
+
+    </div>
     </form>
   </body>
 </html>
