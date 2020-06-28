@@ -26,7 +26,8 @@ public class RegistrationController {
             @RequestParam String userpass,
             @RequestParam String usermail,
             @RequestParam(required = false) String sol,
-            @RequestParam(required = false) String por
+            @RequestParam(required = false) String por,
+            Model model
     ) {
         if (sol == null || por == null) return "redirect:/";
         User user = new User(username, userfamil, "o", usermail, userpass);
