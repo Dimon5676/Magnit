@@ -61,9 +61,10 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------*/
 body {
   line-height: 1.5;
-  font-family: Tahoma, sans-serif; }
+  font-family: Tahoma, sans-serif;
+  background-color: #e0dee0; }
 
-img {
+.content_img {
   margin: 60px;
   position: relative;
   z-index: 3; }
@@ -251,6 +252,55 @@ img {
     font-weight: 100;
     letter-spacing: 1px;
     text-transform: uppercase; }
+
+h1 {
+  text-align: left;
+  margin: 0 0 10px 110px;
+  padding-top: 70px;
+  font-size: 2rem;
+  border-bottom: 2px solid #000; }
+
+.contentcatalog {
+  margin-left: 7%;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 40px;
+  max-width: 80%; }
+
+.select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  margin-left: 110px;
+  padding: 5px;
+  background: #e0deff;
+  border: 2px solid #ccc; }
+
+.catalog {
+  margin: 15px 0 0 110px;
+  padding: 15px;
+  border: 2px solid rgba(136, 9, 30, 0.67); }
+
+.select select {
+  padding: 2px; }
+
+.info {
+  -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  border: 2px solid #ccc;
+  padding: 15px; }
+  .info ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
 
 .popup {
   position: fixed;
@@ -536,5 +586,5 @@ img {
   align-items: center;
   background-color: #2a2727;
   text-align: center;
-  height: 100px;
+  height: 80px;
   color: #e0dee0; }

@@ -90,9 +90,10 @@ $md4:479.98;
 body{
   line-height: 1.5;
   font-family: Tahoma, sans-serif;
+  background-color: #e0dee0;
 
 }
-img{
+.content_img{
   margin: 60px;
   position: relative;
   z-index: 3;
@@ -100,6 +101,7 @@ img{
 
 
 .content{
+
   text-align: center;
   flex: 1 1 auto;
   background-color: #e0dee0;
@@ -224,6 +226,54 @@ img{
     text-transform: uppercase;
 }
 }
+h1{
+  text-align: left;
+  margin: 0 0 10px 110px ;
+  padding-top: 70px;
+  font-size: 2rem;
+  border-bottom: 2px solid #000;
+
+}
+.contentcatalog{
+  margin-left: 7%;
+  flex: 1 1 auto;
+  padding: 40px;
+  max-width: 80%;
+
+}
+
+ .select{
+   display: flex;
+   justify-content: flex-end;
+   margin-left:110px;
+   padding: 5px;
+   background: #e0deff;
+   border: 2px solid #ccc;
+
+ }
+ .catalog{
+   margin:15px 0 0 110px;
+   padding: 15px;
+   border: 2px solid rgba(136, 9, 30, 0.67);
+ }
+.select select{
+  padding: 2px;
+
+}
+
+.info{
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+  border:2px solid #ccc;
+  padding: 15px;
+
+  & ul{
+    display: flex;
+    justify-content: space-between;
+
+
+  }
+}
 .popup{
   position: fixed;
   width: 100%;
@@ -274,7 +324,7 @@ img{
   &_text{
     padding: 15px;
     width: 250px;
-    
+
     input{
       box-shadow: inset 0 0 10px rgba(338, 98, 98, 0.4);
       padding: 12px;
@@ -486,8 +536,7 @@ img{
   justify-content: center;
   align-items: center;
   background-color: #2a2727;
-
   text-align: center;
-  height: 100px;
-    color: #e0dee0;
-  }
+  height: 80px;
+  color: #e0dee0;
+}
