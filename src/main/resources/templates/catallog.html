@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
     <title>ИТ для людей - Магнит</title>
     <link rel="icon" href="img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maxim-scale=1.0, user-scalable=0 /">
-
   </head>
   <body>
     <div class="wrapper">
@@ -53,20 +52,23 @@
             </select>
           </div>
           <div class="catalog">
-            <div class="info">
-              <ul >
-                <li>Название</li>
-                <li>Рейтинг</li>
-              </ul>
-              <ul>
-                <li>Имя</li>
-                <li>Дата</li>
-              </ul>
-              <p>Описание</p>
 
+            <div th:each="idea : ${ideas}" class="info">
+              <ul >
+                <li th:text="${idea.title}">Название</li>
+                <li th:text="${idea.rate}">Рейтинг</li>
+              </ul>
+              <ul >
+                <li th:text="${idea.lastName + ' ' + idea.name + ' ' + middleName }">Имя</li>
+                <li th:text="${idea.date}">Дата</li>
+              </ul>
+              <p  th:text="${idea.description}">Описание</p>
             </div>
 
-          
+
+
+
+
           </div>
           </div>
         <!--  <div id="popup" class="popup">
