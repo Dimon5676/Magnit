@@ -106,7 +106,8 @@ h1 {
 label {
   display: inline-block;
   width: 200px;
-  vertical-align: top; }
+  vertical-align: top;
+  margin: 10px;}
 
 textarea {
   resize: none;
