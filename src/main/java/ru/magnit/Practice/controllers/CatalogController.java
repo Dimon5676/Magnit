@@ -8,16 +8,16 @@ import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
 
 @Controller
-public class CatallogController {
+public class CatalogController {
 
     @Autowired
     IdeaRepository ideaRepository;
 
     @GetMapping("/catalog")
-        public String catallog(Model model){
-            Iterable<Idea> ideas = ideaRepository.findAll ();
-            model.addAttribute ("ideas", ideas);
-            return "сatalog";
-        }
+    public String catalog(Model model){
+        Iterable<Idea> ideas = ideaRepository.findAll ();
+        model.addAttribute ("ideas", ideas);
+        return "catalog";
+    }
 
 }
