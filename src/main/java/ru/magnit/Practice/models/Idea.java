@@ -11,22 +11,28 @@ public class Idea {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
+    private String middleName;
+    private String lastName;
+    private String email;
     private String title;
     private String description;
     private String subdivision;
     private String status;
-    private Long authorId;
 
     public Idea() {
 
     }
 
-    public Idea(String title, String description, String subdivision, String status, Long authorId) {
+    public Idea(String name, String middleName, String lastName, String email, String title, String description, String subdivision, String status) {
+        this.name = name;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.email = email;
         this.title = title;
         this.description = description;
         this.subdivision = subdivision;
         this.status = status;
-        this.authorId = authorId;
     }
 
     public Long getId() {
@@ -35,6 +41,38 @@ public class Idea {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTitle() {
@@ -67,13 +105,5 @@ public class Idea {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Long getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(Long authorId) {
-        this.authorId = authorId;
     }
 }
