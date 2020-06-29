@@ -16,22 +16,7 @@ public class RegistrationController {
 
     @GetMapping("/registration")
     public String registrationPage(Model model) {
-        return "regist";
-    }
-
-    @PostMapping("/registration")
-    public String register(
-            @RequestParam String userfamil,
-            @RequestParam String username,
-            @RequestParam String userpass,
-            @RequestParam String usermail,
-            @RequestParam(required = false) String sol,
-            @RequestParam(required = false) String por,
-            Model model
-    ) {
-        if (sol == null || por == null) return "redirect:/";
-        User user = new User(username, userfamil, "o", usermail, userpass);
-        userRepository.save(user);
         return "redirect:/";
     }
+
 }

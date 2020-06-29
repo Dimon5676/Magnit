@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
 
+import javax.persistence.Id;
+
 @Controller
 public class AddIdeaController {
 
@@ -22,11 +24,18 @@ public class AddIdeaController {
 
     @PostMapping("/add")
     public String addNewIdea(
+            @RequestParam String name,
+            @RequestParam String lastName,
+            @RequestParam String middleName,
             @RequestParam String title,
             @RequestParam String description,
-            @RequestParam String subdivision , Model model
+            @RequestParam String email,
+            @RequestParam(required = false) String subdivision,
+            @RequestParam(required = false) String sol,
+            @RequestParam(required = false) String por, Model model
     ) {
-        Idea idea = new Idea(title, description, subdivision, "Ожидает рассмотрения", 0L);
+        if (sol == null || por == null) return "add";
+        Idea idea = new Idea(name, middleName, lastName, email, title, description, "test", "waiting");
         ideaRepository.save(idea);
         return "redirect:/";
     }
