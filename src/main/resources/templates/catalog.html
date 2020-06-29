@@ -21,7 +21,7 @@
         </div>
           <div class="header_body">
         <div class="header-column">
-          <a href="/" class="header_logo"> <img class="logo" src="img/logo.png" alt=""></a>
+          <a href="home.html" class="header_logo"> <img class="logo" src="img/logo.png" alt=""></a>
         </div>
         <div class="header_colum menu-header">
           <div class="menu-header_icon">
@@ -31,9 +31,9 @@
           </div>
         <nav class="menu-header_menu">
           <ul class="menu-header_list">
-                      <li><a href="/" class="menu-header_link">На главную</a></li>
-                      <li><a href="/add" class="menu-header_link">Подать идею</a></li>
-                      <li><a href="/catalog" class="menu-header_link">Каталог идей</a></li>
+                      <li><a href="home.html" class="menu-header_link">На главную</a></li>
+                      <li><a href="add.html" class="menu-header_link">Подать идею</a></li>
+                      <li><a href="catallog.html" class="menu-header_link">Каталог идей</a></li>
                     <!--  <li><a href="#popup" class="menu-header_link">Вход/Регистрация</a></li>-->
                     </ul>
         </nav>
@@ -56,11 +56,11 @@
             <div th:each="idea : ${ideas}" class="info">
               <ul >
                 <li th:text="${idea.title}">Название</li>
-                <li th:text="${idea.id}">Рейтинг</li>
+                <li th:text="${idea.rate}">Рейтинг</li>
               </ul>
               <ul >
-                <li th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName}">Имя</li>
-                <li th:text="${idea.id}">Дата</li>
+                <li th:text="${idea.lastName + ' ' + idea.name + ' ' + middleName }">Имя</li>
+                <li th:text="${idea.date}">Дата</li>
               </ul>
               <p  th:text="${idea.description}">Описание</p>
             </div>
@@ -75,10 +75,10 @@
             <a href="#header" class="popup_area"></a>
             <div class="popup_body">
               <div class="popup_content">
-                <a href="/" class="popup_close">X</a>
+                <a href="#header" class="popup_close">X</a>
                 <div class="popup_title">Вход</div>
                 <div class="popup_text">
-                    <form  action="/login" method="post">
+                    <form  action="#" method="post">
                       <div class="popup_text_vev">
                         <p class="popup_text_type">Логин или email:</p>
                         <input class="popup_text_login" placeholder="Введите логин..." type="text" name="username" tabindex="1" value="">
@@ -89,7 +89,7 @@
                       </div>
                       <div class="popup_text_go">
                         <button class="popup_text_btn" tabindex="3" type="submit">Войти</button>
-                        <a class="popup_text_regist" href="/registration">Регистрация</a>
+                        <a class="popup_text_regist"href="regist.html">Регистрация</a>
                       </div>
                     </form>
 
