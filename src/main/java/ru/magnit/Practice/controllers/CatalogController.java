@@ -9,7 +9,6 @@ import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class CatalogController {
