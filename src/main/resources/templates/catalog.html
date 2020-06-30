@@ -76,9 +76,9 @@
           <div class="catalog">
 
             <div th:each="idea : ${ideas}" class="info">
+            <p th:text="${ 'Рейтинг:' + idea.rate}"class="rat">Рейтинг</p>
               <ul >
                 <li class="title" th:text="${idea.title}">Название</li>
-                <li class="rate" th:text="${idea.rate}"><p class="rat">Рейтинг</p></li>
                 <form class="subform" action="/catalog" method="post">
                   <button class="sub"type="submit" name="like"><img class="like" src="img/Like.png" alt="rh"></button>
                 </form>
@@ -108,7 +108,7 @@
                 </button>
                 </li>
               </ul>
-                <input type="hidden" th:name="id" th:value="${idea.id}" />
+                <input type="hidden" class="hidden" th:name="id" th:value="${idea.id}" />
               </form>
               <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
             </div>
