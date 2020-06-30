@@ -48,7 +48,7 @@
           <div>
             <form class="subform" action="/catalog" method="get">
           <input class="isk" type="search" placeholder="Поиск..."name="" value="">
-              <select class="sort" name="sortcatalog">
+              <select class="sort" name="filter">
               <option value="Поле:">Поле:</option>
               <option value="title">Заголовок</option>
               <option value="name">Имя</option>
@@ -61,7 +61,7 @@
             </div>
             <div class="select">
               <form class="subform" action="/catalog" method="get">
-              <select class="sort" name="sortcatalog">
+              <select class="sort" name="sort">
               <option value="alphabet">Отсортировать по:</option>
               <option value="alphabet">по алфавиту</option>
               <option value="rate">по популярности</option>
@@ -91,7 +91,7 @@
               <ul sec:authorize="isAuthenticated()" class="mail" >
                 <li  th:text="${idea.email}">Майл</li>
                 <li >
-                  <select class="change" name="sortchange">
+                  <select class="change" name="ideaChange">
                   <option value="waiting">Не рассмотрено</option>
                   <option value="checked">Рассмотренно</option>
                   <option value="delete">Удалить</option>
