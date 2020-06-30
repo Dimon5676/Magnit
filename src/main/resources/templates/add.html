@@ -9,67 +9,69 @@
   </head>
   <body>
 
-  <form class="subform" action="/add" method="post">
-  <div class="form_logo">
-        <a href="/"> <img class="logo" src="img/logo.png" alt=""></a>
+      <form class="subform" action="/add" method="post">
+      <div class="form_logo">
+            <a href="/"> <img class="logo" src="img/logo.png" alt=""></a>
 
-  </div>
+      </div>
 
-    <h1>Подача идеи</h1>
-    <div class="form_group">
-      <label for="q">Фамилия:</label>
-      <input id="q" class="input_text" placeholder="Введите фамилию..." type="text" name="lastName" tabindex="1" >
-      <p th:if="${lastNameError}" class="errorpas">*Фамилия введена неверно</p>
-    </div>
-    <div class="form_group">
-      <label for="rr">Имя:</label>
-      <input id="rr" class="input_text" placeholder="Введите имя..." type="text" name="name" tabindex="2" >
-      <p th:if="${nameError}" class="errorpas">*Имя введено не верно</p>
-    </div>
-    <div class="form_group">
-      <label for="nn">Отчество:</label>
-      <input id="nn" class="input_text" placeholder="Введите отчество..." type="text" name="middleName" tabindex="3" value="">
-      <p th:if="${middleNameError}" class="errorpas">*Отчество введено не верно</p>
-    </div>
-    <div class="form_group">
-      <label for="rt">Заголовок идеи:</label>
-        <input  id="rt" class="input_text" placeholder="Заголовок" type="text" name="title" tabindex="4" value="">
-    </div>
-    <div class="form_group">
-          <label>Подразделение:</label>
-          <select class="sort" name="subdivision">
-            <option value="Магнит">Магнит</option>
-            <option value="Косметик">Косметик</option>
-            <option value="Аптеки">Аптеки</option>
-            <option value="Семейный">Семейный</option>
-          </select>
-    </div>
+        <h1>Подача идеи</h1>
+        <div class="form_group">
+          <label for="q">Фамилия:</label>
+          <input id="q" class="input_text" placeholder="Введите фамилию..." type="text" name="lastName" tabindex="1" >
+          <p th:if="${lastNameError}" class="errorpas">*Фамилия введена неверно</p>
+        </div>
+        <div class="form_group">
+          <label for="rr">Имя:</label>
+          <input id="rr" class="input_text" placeholder="Введите имя..." type="text" name="name" tabindex="2" >
+          <p th:if="${nameError}" class="errorpas">*Имя введено не верно</p>
+        </div>
+        <div class="form_group">
+          <label for="nn">Отчество:</label>
+          <input id="nn" class="input_text" placeholder="Введите отчество..." type="text" name="middleName" tabindex="3" value="">
+          <p th:if="${middleNameError}" class="errorpas">*Отчество введено не верно</p>
+        </div>
+        <div class="form_group">
+          <label for="rt">Заголовок идеи:</label>
+            <input  id="rt" class="input_text" placeholder="Заголовок" type="text" name="title" tabindex="4" value="">
+            <p th:if="${titleError}" class="errorpas">*Заголовок введен не верно</p>
+        </div>
+        <div class="form_group">
+              <label>Подразделение:</label>
+              <select class="sort" name="subdivision">
+                <option value="Магнит">Магнит</option>
+                <option value="Косметик">Косметик</option>
+                <option value="Аптеки">Аптеки</option>
+                <option value="Семейный">Семейный</option>
+              </select>
+        </div>
 
-    <div class="form_group">
-      <label for="rf">Описание идеи:</label>
-      <textarea id="rf" rows="6" cols="70" name="description" placeholder="Введите полный текст идеи..." tabindex="5" class=" form-control"></textarea>
-    </div>
-    <div class="error">
-     <div class="form_group">
-      <label for="r">Адрес электронной почты:</label>
-      <input id="r"class="input_text" placeholder="Введите email..." type="text" name="email" tabindex="6" value="">
-      <p th:if="${emailError}" class="errorpas">*Email введен не верно</p>
-    </div>
-    </div>
+        <div class="form_group">
+          <label for="rf">Описание идеи:</label>
+          <textarea id="rf" rows="6" cols="70" name="description" placeholder="Введите полный текст идеи..." tabindex="5" class=" form-control"></textarea>
+          <p th:if="${descriptionError}" class="errorpas">*Описание введено не верно</p>
+        </div>
+        <div class="error">
+         <div class="form_group">
+          <label for="r">Адрес электронной почты:</label>
+          <input id="r"class="input_text" placeholder="Введите email..." type="text" name="email" tabindex="6" value="">
+          <p th:if="${emailError}" class="errorpas">*Email введен не верно</p>
+        </div>
+        </div>
 
-      <div class="trip">
-      <input type="checkbox" name="sol" value="yes" tabindex="7">
-      <p class="trip_p"> Я согласен с <a href=""> правилами пользования</a></p>
-    </div>
-    <div class="trip">
-      <input type="checkbox" name="por" value="yes" tabindex="8">
-      <p class="trip_p"> Я согласен с <a href=""> обработкой персональных данных</a></p>
-    </div>
-    <div >
-    <button class="form_group_btn" type="submit" name="">Отправить</button>
-    <a href="/" class="menu-header_link">На главную</a>
+          <div class="trip">
+          <input type="checkbox" name="sol" value="yes" tabindex="7">
+          <p class="trip_p"> Я согласен с <a href=""> правилами пользования</a></p>
+        </div>
+        <div class="trip">
+          <input type="checkbox" name="por" value="yes" tabindex="8">
+          <p class="trip_p"> Я согласен с <a href=""> обработкой персональных данных</a></p>
+        </div>
+        <div >
+        <button class="form_group_btn" type="submit" name="">Отправить</button>
+        <a href="/" class="menu-header_link">На главную</a>
 
-    </div>
-    </form>
-  </body>
-</html>
+        </div>
+        </form>
+      </body>
+    </html>
