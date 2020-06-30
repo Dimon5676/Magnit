@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.magnit.Practice.comparators.AlphabetComp;
+import ru.magnit.Practice.comparators.DateComp;
+import ru.magnit.Practice.comparators.RateComp;
 import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
 
@@ -69,16 +72,18 @@ public class CatalogController {
         }
         if (sort != null) {
             if (sort.equalsIgnoreCase("alphabet")) {
-                //Сортировка по ideas по алфавиту
+                a.sort(new AlphabetComp());
             }
 
             if (sort.equalsIgnoreCase("rate")) {
-                //Сортировка по ideas по популярности
+                a.sort(new RateComp());
             }
 
             if (sort.equalsIgnoreCase("date")) {
-                //Сортировка по ideas по дате
+                a.sort(new DateComp());
             }
+        } else {
+            a.sort(new DateComp());
         }
 
         model.addAttribute ("ideas", a);
