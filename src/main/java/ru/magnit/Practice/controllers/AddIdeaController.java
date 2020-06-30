@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
+import ru.magnit.Practice.validators.StringFieldValidator;
 
-import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Controller
@@ -36,6 +37,18 @@ public class AddIdeaController {
             @RequestParam(required = false) String por, Model model
     ) {
         if (sol == null || por == null) return "add";
+        ArrayList<Boolean> arr = new ArrayList<>();
+        arr.add(StringFieldValidator.isNumbersInString(name));
+        arr.add(StringFieldValidator.isNumbersInString(lastName));
+        arr.add(StringFieldValidator.isNumbersInString(middleName));
+        arr.add(!StringFieldValidator.isEmail(email));
+        model.addAttribute("nameError", arr.get(0));
+        model.addAttribute("lastNameError", arr.get(1));
+        model.addAttribute("middleNameError", arr.get(2));
+        model.addAttribute("emailError", arr.get(3));
+        if (arr.contains(true)) {
+            return "add";
+        }
         Idea idea = new Idea(
                 name,
                 middleName,
