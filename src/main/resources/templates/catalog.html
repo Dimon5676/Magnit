@@ -43,7 +43,7 @@
         </div>
       </header>
         <div class="contentcatalog">
-          <h1 class="idea">Каталог идей</h1>
+          <h1 class="idea">Каталог идей</h1> 
           <div class="select">
             <select class="sort" name="sortcatalog">
             <option value="">Отсортировать по:</option>
@@ -56,14 +56,15 @@
 
             <div th:each="idea : ${ideas}" class="info">
               <ul >
-                <li th:text="${idea.title}">Название</li>
-                <li th:text="${idea.rate}">Рейтинг</li>
+                <li class="title" th:text="${idea.title}">Название</li>
+                <li class="rate" th:text="${idea.rate}">Рейтинг</li>
               </ul>
               <ul >
-                <li th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName }">Имя</li>
-                <li th:text="${idea.date}">Дата</li>
+                <li class="name" th:text="${idea.lastName + ' ' + idea.name + ' ' + middleName }">Имя</li>
+                <li class="date" th:text="${idea.date}">Дата</li>
               </ul>
-              <p  th:text="${idea.description}">Описание</p>
+              <p  class="des" >Описание</p>
+              <p  class="description" th:text="${idea.description}">Описание</p>
             </div>
 
 
