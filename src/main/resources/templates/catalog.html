@@ -31,9 +31,9 @@
           </div>
         <nav class="menu-header_menu">
           <ul class="menu-header_list">
-                      <li><a href="home.html" class="menu-header_link">На главную</a></li>
-                      <li><a href="add.html" class="menu-header_link">Подать идею</a></li>
-                      <li><a href="catallog.html" class="menu-header_link">Каталог идей</a></li>
+                      <li><a href="/" class="menu-header_link">На главную</a></li>
+                      <li><a href="/add" class="menu-header_link">Подать идею</a></li>
+                      <li><a href="/catalog" class="menu-header_link">Каталог идей</a></li>
                     <!--  <li><a href="#popup" class="menu-header_link">Вход/Регистрация</a></li>-->
                     </ul>
         </nav>
@@ -56,11 +56,11 @@
             <div th:each="idea : ${ideas}" class="info">
               <ul >
                 <li th:text="${idea.title}">Название</li>
-                <li th:text="${idea.rate}">Рейтинг</li>
+                <li th:text="${idea.id}">Рейтинг</li>
               </ul>
               <ul >
-                <li th:text="${idea.lastName + ' ' + idea.name + ' ' + middleName }">Имя</li>
-                <li th:text="${idea.date}">Дата</li>
+                <li th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName}">Имя</li>
+                <li th:text="${idea.id}">Дата</li>
               </ul>
               <p  th:text="${idea.description}">Описание</p>
             </div>

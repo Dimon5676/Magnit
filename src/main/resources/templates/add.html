@@ -49,8 +49,11 @@
       <p class="trip_p"> Я согласен с <a href=""> обработкой персональных данных</a></p>
     </div>
     <div >
+      <input type="hidden"
+             name="${_csrf.parameterName}"
+             value="${_csrf.token}"/>
     <button class="form_group_btn" type="submit" name="">Отправить</button>
-    <a href="home.html" class="menu-header_link">На главную</a>
+    <a href="/" class="menu-header_link">На главную</a>
 
     </div>
     </form>
