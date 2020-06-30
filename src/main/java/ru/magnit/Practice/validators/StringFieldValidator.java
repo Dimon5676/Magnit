@@ -9,6 +9,7 @@ public class StringFieldValidator {
 
     public static boolean isEmail(String s) {
         if (s.equals("")) return false;
-        return true;
+        if (s.contains("@") && s.contains(".")) return true;
+        return false;
     }
 }
