@@ -69,6 +69,18 @@ body {
   position: relative;
   z-index: 3; }
 
+.rat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.hidden {
+  color: #e9d7db;
+  background-color: #e9d7db; }
+
 .content {
   text-align: center;
   -webkit-box-flex: 1;
