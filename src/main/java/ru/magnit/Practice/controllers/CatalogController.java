@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.magnit.Practice.comparators.AlphabetComp;
 import ru.magnit.Practice.comparators.DateComp;
@@ -88,6 +89,30 @@ public class CatalogController {
 
         model.addAttribute ("ideas", a);
         return "catalog";
+    }
+
+    @PostMapping("/catalog")
+    public String edit(
+            @RequestParam String ideaChange,
+            @RequestParam Long id,
+            Model model
+    ) {
+        if (ideaChange == null || id == null) return "redirect:/catalog";
+        if (ideaChange.equalsIgnoreCase("waiting")) {
+            Idea idea = ideaRepository.getById(id);
+            idea.setStatus("Не рассмотрена");
+            ideaRepository.save(idea);
+        }
+        if (ideaChange.equalsIgnoreCase("checked")) {
+            Idea idea = ideaRepository.getById(id);
+            idea.setStatus("Рассмотрена");
+            ideaRepository.save(idea);
+        }
+        if (ideaChange.equalsIgnoreCase("delete")) {
+            Idea idea = ideaRepository.getById(id);
+            ideaRepository.delete(idea);
+        }
+        return "redirect:/catalog";
     }
 
 }

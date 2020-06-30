@@ -89,12 +89,14 @@
               </ul>
               <form class="subform" action="/catalog" method="post">
               <ul sec:authorize="isAuthenticated()" class="mail" >
+
                 <li  th:text="${idea.email}">Майл</li>
+                <li th:text="${idea.id}"></li>
                 <li >
                   <select class="change" name="ideaChange">
-                  <option value="waiting">Не рассмотрено</option>
-                  <option value="checked">Рассмотренно</option>
-                  <option value="delete">Удалить</option>
+                    <option value="waiting">Не рассмотренна</option>
+                    <option value="checked">Рассмотренна</option>
+                    <option value="delete">Удалить</option>
                   </select>
                 </li>
               </ul>
@@ -106,6 +108,7 @@
                 </button>
                 </li>
               </ul>
+                <input type="hidden" th:name="id" th:value="${idea.id}" />
               </form>
               <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
             </div>

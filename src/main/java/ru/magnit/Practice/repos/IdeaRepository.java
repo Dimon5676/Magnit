@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 import ru.magnit.Practice.models.Idea;
 
 public interface IdeaRepository extends CrudRepository<Idea, Long> {
-
+    public Idea getById(Long id);
 }
