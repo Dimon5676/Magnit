@@ -19,14 +19,17 @@
     <div class="form_group">
       <label for="q">Фамилия:</label>
       <input id="q" class="input_text" placeholder="Введите фамилию..." type="text" name="lastName" tabindex="1" >
+      <p th:if="${lastNameError}" class="errorpas">*Фамилия введена неверно</p>
     </div>
     <div class="form_group">
       <label for="rr">Имя:</label>
       <input id="rr" class="input_text" placeholder="Введите имя..." type="text" name="name" tabindex="2" >
+      <p th:if="${nameError}" class="errorpas">*Имя введено не верно</p>
     </div>
     <div class="form_group">
       <label for="nn">Отчество:</label>
-    <input id="nn" class="input_text" placeholder="Введите отчество..." type="text" name="middleName" tabindex="3" value="">
+      <input id="nn" class="input_text" placeholder="Введите отчество..." type="text" name="middleName" tabindex="3" value="">
+      <p th:if="${middleNameError}" class="errorpas">*Отчество введено не верно</p>
     </div>
     <div class="form_group">
       <label for="rt">Заголовок идеи:</label>
