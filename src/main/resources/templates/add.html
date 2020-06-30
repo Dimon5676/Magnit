@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/slylereg.css">
@@ -29,18 +29,31 @@
     <input id="nn" class="input_text" placeholder="Введите отчество..." type="text" name="middleName" tabindex="3" value="">
     </div>
     <div class="form_group">
-      <label for="rt">Заголовок идеи:</label> 
+      <label for="rt">Заголовок идеи:</label>
         <input  id="rt" class="input_text" placeholder="Заголовок" type="text" name="title" tabindex="4" value="">
     </div>
+    <div class="form_group">
+          <label>Подразделение:</label>
+          <select class="sort" name="sortcatalog">
+          <option value="">Магнит</option>
+          <option value="">Косметик</option>
+          <option value="">Аптеки</option>
+          <option value="">Семейный</option>
+        </div>
+
     <div class="form_group">
       <label for="rf">Описание идеи:</label>
       <textarea id="rf" rows="6" cols="70"name="description" placeholder="Введите полный текст идеи..." tabindex="5" class=" form-control"></textarea>
     </div>
-    <div class="form_group">
+    <div th:if="${loginError}" class="error">
+     <div class="form_group">
       <label for="r">Адрес электронной почты:</label>
       <input id="r"class="input_text" placeholder="Введите email..." type="text" name="email" tabindex="6" value="">
+      <p th:if="${loginError}" class="errorpas">*Email введен не верно</p>
     </div>
-    <div class="trip">
+    </div>
+
+      <div class="trip">
       <input type="checkbox" name="sol" value="yes" tabindex="7">
       <p class="trip_p"> Я согласен с <a href=""> правилами пользования</a></p>
     </div>
