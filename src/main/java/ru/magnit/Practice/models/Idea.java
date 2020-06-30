@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Idea {
@@ -19,12 +20,14 @@ public class Idea {
     private String description;
     private String subdivision;
     private String status;
+    private Date date;
+    private int rate;
 
     public Idea() {
 
     }
 
-    public Idea(String name, String middleName, String lastName, String email, String title, String description, String subdivision, String status) {
+    public Idea(String name, String middleName, String lastName, String email, String title, String description, String subdivision, String status, Date date, int rate) {
         this.name = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -33,6 +36,24 @@ public class Idea {
         this.description = description;
         this.subdivision = subdivision;
         this.status = status;
+        this.date = date;
+        this.rate = rate;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 
     public Long getId() {

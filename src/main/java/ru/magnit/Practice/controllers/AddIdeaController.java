@@ -10,6 +10,7 @@ import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
 
 import javax.persistence.Id;
+import java.util.Date;
 
 @Controller
 public class AddIdeaController {
@@ -35,7 +36,17 @@ public class AddIdeaController {
             @RequestParam(required = false) String por, Model model
     ) {
         if (sol == null || por == null) return "add";
-        Idea idea = new Idea(name, middleName, lastName, email, title, description, "test", "waiting");
+        Idea idea = new Idea(
+                name,
+                middleName,
+                lastName,
+                email,
+                title,
+                description,
+                "test",
+                "waiting",
+                new Date(),
+                0);
         ideaRepository.save(idea);
         return "redirect:/";
     }

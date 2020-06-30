@@ -45,11 +45,11 @@
       <label for="rf">Описание идеи:</label>
       <textarea id="rf" rows="6" cols="70"name="description" placeholder="Введите полный текст идеи..." tabindex="5" class=" form-control"></textarea>
     </div>
-    <div th:if="${loginError}" class="error">
+    <div th:if="${emailError}" class="error">
      <div class="form_group">
       <label for="r">Адрес электронной почты:</label>
       <input id="r"class="input_text" placeholder="Введите email..." type="text" name="email" tabindex="6" value="">
-      <p th:if="${loginError}" class="errorpas">*Email введен не верно</p>
+      <p th:if="${emailError}" class="errorpas">*Email введен не верно</p>
     </div>
     </div>
 
