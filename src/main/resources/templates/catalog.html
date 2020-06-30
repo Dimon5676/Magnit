@@ -78,9 +78,10 @@
             <div th:each="idea : ${ideas}" class="info">
               <ul >
                 <li class="title" th:text="${idea.title}">Название</li>
-                <li class="rate" th:text="${idea.rate}"><p class="rat">Рейтинг</p>
-                  <button class="sub"type="submit" name="change_rating"><img class="like" src="img/Like.png" alt="rh"></button>
-                  </li>
+                <li class="rate" th:text="${idea.rate}"><p class="rat">Рейтинг</p></li>
+                <form class="subform" action="/catalog" method="post">
+                  <button class="sub"type="submit" name="like"><img class="like" src="img/Like.png" alt="rh"></button>
+                </form>
               </ul>
               <ul >
                 <li class="name" th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName }">Имя</li>
