@@ -31,7 +31,7 @@ public class AddIdeaController {
             @RequestParam String title,
             @RequestParam String description,
             @RequestParam String email,
-            @RequestParam(required = false) String subdivision,
+            @RequestParam String subdivision,
             @RequestParam(required = false) String sol,
             @RequestParam(required = false) String por, Model model
     ) {
@@ -43,7 +43,7 @@ public class AddIdeaController {
                 email,
                 title,
                 description,
-                "test",
+                subdivision,
                 "waiting",
                 new Date(),
                 0);
