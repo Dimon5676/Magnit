@@ -100,6 +100,7 @@
               </ul>
               <ul >
                 <li class="des">Описание</li>
+                <li th:text="${idea.status}">Статус</li>
                 <li sec:authorize="isAuthenticated()" class="rating">
                   <button  class="change" name="change_rating"> Применить
                 </button>
@@ -108,10 +109,6 @@
               </form>
               <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
             </div>
-
-
-
-
 
           </div>
 
