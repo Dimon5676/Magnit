@@ -42,14 +42,14 @@
         </div>
         </div>
       </header>
-        <div class="contentcatalog">
+  <div class="contentcatalog">
           <h1 class="idea">Каталог идей</h1>
           <div class="select">
             <select class="sort" name="sortcatalog">
-              <option value="">Отсортировать по:</option>
-              <option value="">по алфавиту</option>
-              <option value="">по популярности</option>
-              <option value="">по дате</option>
+            <option value="">Отсортировать по:</option>
+            <option value="">по алфовиту.</option>
+            <option value="">по популярности.</option>
+            <option value="">по дате.</option>
             </select>
           </div>
           <div class="catalog">
@@ -63,8 +63,25 @@
                 <li class="name" th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName }">Имя</li>
                 <li class="date" th:text="${idea.date}">Дата</li>
               </ul>
-              <p  class="des" >Описание</p>
-              <p  class="description" th:text="${idea.description}">Описание</p>
+              <ul sec:authorize="isAuthenticated()" class="mail" >
+                <li  th:text="${idea.email}">Майл</li>
+                <li >
+                  <select class="change" name="sortchange">
+                  <option value="">Не рассмотрено</option>
+                  <option value="">Рассмотренно</option>
+                  <option value="">Удалить</option>
+
+                  </select>
+                </li>
+              </ul>
+              <ul >
+                <li class="des">Описание</li>
+                <li class="rating">
+                  <button  class="change" name="change_rating"> Применить
+                </button>
+                </li>
+              </ul>
+              <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание<br>ОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписаниеОписание<br>ОписаниеОписаниеОписание</p>
             </div>
 
 
@@ -72,31 +89,7 @@
 
 
           </div>
-          <div id="popup" class="popup">
-            <a href="#header" class="popup_area"></a>
-            <div class="popup_body">
-              <div class="popup_content">
-                <div class="popup_title">Вход</div>
-                <div class="popup_text">
-                    <form  action="#" method="post">
-                      <div class="popup_text_vev">
-                        <p class="popup_text_type">Логин или email:</p>
-                        <input class="popup_text_login" placeholder="Введите логин..." type="text" name="username" tabindex="1" value="">
-                      </div>
-                      <div class="popup_text_vev" >
-                        <p class="popup_text_type">Пароль:</p>
-                        <input  class="popup_text_pass" placeholder="Введите пароль..." type="password" name="userpass" tabindex="2" value="">
-                      </div>
-                      <div class="popup_text_go">
-                        <button class="popup_text_btn" tabindex="3" type="submit">Войти</button>
-                        <a class="popup_text_regist"href="regist.html">Регистрация</a>
-                      </div>
-                    </form>
-
-                </div>
-              </div>
-            </div>
-          </div>
+       
         </div>
           <footer class="footer">
             <div class="conteiner">
