@@ -24,6 +24,10 @@ public class CatalogController {
             Model model
     ){
         Iterable<Idea> ideas = ideaRepository.findAll();
+        if (sort == null) {
+            model.addAttribute ("ideas", ideas);
+            return "catalog";
+        }
         if (sort.equalsIgnoreCase("alphabet")) {
             //Сортировка по ideas по алфавиту
         }
