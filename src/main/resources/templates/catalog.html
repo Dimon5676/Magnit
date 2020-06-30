@@ -73,9 +73,50 @@
             </div>
             </div>
 
-          <div class="catalog">
+          <div sec:authorize="isAuthenticated()" class="catalog">
 
-            <div th:each="idea : ${ideas}" class="info">
+            <div th:each="idea : ${adminIdeas}" class="info">
+            <p th:text="${ 'Рейтинг:' + idea.rate}"class="rat">Рейтинг</p>
+              <ul >
+                <li class="title" th:text="${idea.title}">Название</li>
+                <form class="subform" action="/catalog" method="post">
+                  <button class="sub"type="submit" name="like"><img class="like" src="img/Like.png" alt="rh"></button>
+                </form>
+              </ul>
+              <ul >
+                <li class="name" th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName }">Имя</li>
+                <li class="date" th:text="${idea.date}">Дата</li>
+              </ul>
+              <form class="subform" action="/catalog" method="post">
+              <ul sec:authorize="isAuthenticated()" class="mail" >
+
+                <li  th:text="${idea.email}">Майл</li>
+                <li th:text="${idea.id}"></li>
+                <li >
+                  <select class="change" name="ideaChange">
+                    <option value="waiting">Не рассмотренна</option>
+                    <option value="checked">Рассмотренна</option>
+                    <option value="delete">Удалить</option>
+                  </select>
+                </li>
+              </ul>
+              <ul >
+                <li class="des">Описание</li>
+                <li th:text="${idea.status}">Статус</li>
+                <li sec:authorize="isAuthenticated()" class="rating">
+                  <button  class="change" name="change_rating"> Применить
+                </button>
+                </li>
+              </ul>
+                <input type="hidden" class="hidden" th:name="id" th:value="${idea.id}" />
+              </form>
+              <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
+            </div>
+
+          </div>
+            <div class="catalog">
+
+            <div th:each="idea : ${userIdeas}" class="info">
             <p th:text="${ 'Рейтинг:' + idea.rate}"class="rat">Рейтинг</p>
               <ul >
                 <li class="title" th:text="${idea.title}">Название</li>

@@ -28,66 +28,85 @@ public class CatalogController {
             Model model
     ){
         Iterable<Idea> ideas = ideaRepository.findAll();
-        ArrayList<Idea> a = new ArrayList<>();
+        ArrayList<Idea> userIdeas = new ArrayList<>();
+        ArrayList<Idea> adminIdeas = new ArrayList<>();
         if (filter != null && search != null) {
             if (filter.equalsIgnoreCase("")) {
-                ideas.forEach(a::add);
+                for (Idea idea : ideas) {
+                    if (idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                        userIdeas.add(idea);
+                    } else {
+                        adminIdeas.add(idea);
+                    }
+                }
             }
             if (filter.equalsIgnoreCase("title")) {
                 for (Idea idea : ideas) {
-                    if (idea.getTitle().contains(search)) {
-                        a.add(idea);
+                    if (idea.getTitle().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                        userIdeas.add(idea);
+                    } else if (idea.getTitle().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                        adminIdeas.add(idea);
                     }
                 }
             }
             if (filter.equalsIgnoreCase("name")) {
                 for (Idea idea : ideas) {
-                    if ((idea.getLastName() + idea.getName() + idea.getLastName()).contains(search)) {
-                        a.add(idea);
+                    if ((idea.getLastName() + idea.getName() + idea.getLastName()).contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                        userIdeas.add(idea);
+                    } else if ((idea.getLastName() + idea.getName() + idea.getLastName()).contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                        adminIdeas.add(idea);
                     }
                 }
             }
             if (filter.equalsIgnoreCase("description")) {
                 for (Idea idea : ideas) {
-                    if (idea.getDescription().contains(search)) {
-                        a.add(idea);
+                    if (idea.getDescription().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                        userIdeas.add(idea);
+                    } else if (idea.getDescription().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                        adminIdeas.add(idea);
                     }
                 }
             }
             if (filter.equalsIgnoreCase("subdivision")) {
                 for (Idea idea : ideas) {
-                    if (idea.getSubdivision().contains(search)) {
-                        a.add(idea);
-                    }
-                }
-            }
-            if (filter.equalsIgnoreCase("status")) {
-                for (Idea idea : ideas) {
-                    if (idea.getStatus().contains(search)) {
-                        a.add(idea);
+                    if (idea.getSubdivision().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                        userIdeas.add(idea);
+                    } else if (idea.getSubdivision().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                        adminIdeas.add(idea);
                     }
                 }
             }
         } else {
-            ideas.forEach(a::add);
+            for (Idea idea : ideas) {
+                if (idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                    userIdeas.add(idea);
+                } else {
+                    adminIdeas.add(idea);
+                }
+            }
         }
         if (sort != null) {
             if (sort.equalsIgnoreCase("alphabet")) {
-                a.sort(new AlphabetComp());
+                userIdeas.sort(new AlphabetComp());
+                adminIdeas.sort(new AlphabetComp());
             }
 
             if (sort.equalsIgnoreCase("rate")) {
-                a.sort(new RateComp());
+                userIdeas.sort(new RateComp());
+                adminIdeas.sort(new RateComp());
             }
 
             if (sort.equalsIgnoreCase("date")) {
-                a.sort(new DateComp());
+                userIdeas.sort(new DateComp());
+                adminIdeas.sort(new DateComp());
             }
         } else {
-            a.sort(new DateComp());
+            userIdeas.sort(new DateComp());
+            adminIdeas.sort(new DateComp());
         }
 
-        model.addAttribute ("ideas", a);
+        model.addAttribute ("userIdeas", userIdeas);
+        model.addAttribute ("adminIdeas", adminIdeas);
         return "catalog";
     }
 
