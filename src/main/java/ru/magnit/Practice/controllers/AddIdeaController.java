@@ -57,7 +57,7 @@ public class AddIdeaController {
                 title,
                 description,
                 subdivision,
-                "waiting",
+                "Не рассмотрена",
                 new Date(),
                 0);
         ideaRepository.save(idea);

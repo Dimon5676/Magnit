@@ -47,13 +47,14 @@
           <div class="search">
           <div>
             <form class="subform" action="/catalog" method="get">
-          <input class="isk" type="search" placeholder="Поиск..."name="" value="">
+          <input class="isk" type="search" placeholder="Поиск..." name="search" value="">
               <select class="sort" name="filter">
-              <option value="Поле:">Поле:</option>
-              <option value="title">Заголовок</option>
-              <option value="name">Имя</option>
-              <option value="description">Описание</option>
-              <option sec:authorize="isAuthenticated()" value="status">Статус</option>
+                <option value="title">Поле:</option>
+                <option value="title">Заголовок</option>
+                <option value="name">Имя</option>
+                <option value="description">Описание</option>
+                <option value="subdivision">Подразделение</option>
+                <option sec:authorize="isAuthenticated()" value="status">Статус</option>
               </select>
               <button  type="submit" class="change" name="change_rating"> Применить
             </button>
