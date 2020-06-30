@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
@@ -50,9 +50,10 @@
           <input class="isk" type="search" placeholder="Поиск..."name="" value="">
               <select class="sort" name="sortcatalog">
               <option value="Поле:">Поле:</option>
-              <option value="Заголовок">Заголовок</option>
-              <option value="Имя">Имя</option>
-              <option value="Описание">Описание</option>
+              <option value="title">Заголовок</option>
+              <option value="name">Имя</option>
+              <option value="description">Описание</option>
+              <option sec:authorize="isAuthenticated()" value="status">Статус</option>
               </select>
               <button  type="submit" class="change" name="change_rating"> Применить
             </button>
@@ -61,10 +62,10 @@
             <div class="select">
               <form class="subform" action="/catalog" method="get">
               <select class="sort" name="sortcatalog">
-              <option value="Отсортировать по:">Отсортировать по:</option>
-              <option value="по алфовиту">по алфовиту.</option>
-              <option value="по популярности">по популярности.</option>
-              <option value="по дате">по дате.</option>
+              <option value="alphabet">Отсортировать по:</option>
+              <option value="alphabet">по алфавиту</option>
+              <option value="rate">по популярности</option>
+              <option value="date">по дате</option>
               </select>
               <button  class="change" name="change_rating"> Применить
             </button>
@@ -78,21 +79,21 @@
               <ul >
                 <li class="title" th:text="${idea.title}">Название</li>
                 <li class="rate" th:text="${idea.rate}"><p class="rat">Рейтинг</p>
-                  <button class="sub"type="submit" name="change_rating"><img class="like"src="img/like.png" alt="rh"></<button >
+                  <button class="sub"type="submit" name="change_rating"><img class="like" src="img/Like.png" alt="rh"></button>
                   </li>
               </ul>
               <ul >
                 <li class="name" th:text="${idea.lastName + ' ' + idea.name + ' ' + idea.middleName }">Имя</li>
                 <li class="date" th:text="${idea.date}">Дата</li>
               </ul>
-              <form class="subform" action="/catalog" method="get">
+              <form class="subform" action="/catalog" method="post">
               <ul sec:authorize="isAuthenticated()" class="mail" >
                 <li  th:text="${idea.email}">Майл</li>
                 <li >
                   <select class="change" name="sortchange">
-                  <option value="">Не рассмотрено</option>
-                  <option value="">Рассмотренно</option>
-                  <option value="">Удалить</option>
+                  <option value="waiting">Не рассмотрено</option>
+                  <option value="checked">Рассмотренно</option>
+                  <option value="delete">Удалить</option>
                   </select>
                 </li>
               </ul>
@@ -104,10 +105,15 @@
                 </li>
               </ul>
               </form>
-              <p  class="description" th:text="${idea.description}">ОписаниеJписаниеОписание</p>
+              <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
             </div>
 
-            </div>
+
+
+
+
+          </div>
+
         </div>
           <footer class="footer">
             <div class="conteiner">
