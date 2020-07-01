@@ -164,4 +164,15 @@ public class CatalogController {
 
         emailService.send(email);
     }
+
+    @GetMapping("/like")
+    public String like(
+            @RequestParam Long like,
+            Model model
+    ) {
+        Idea idea = ideaRepository.getById(like);
+        idea.setRate(idea.getRate() + 1);
+        ideaRepository.save(idea);
+        return "redirect:/catalog";
+    }
 }

@@ -120,8 +120,8 @@
             <p th:text="${ 'Рейтинг:' + idea.rate}"class="rat">Рейтинг</p>
               <ul >
                 <li class="title" th:text="${idea.title}">Название</li>
-                <form class="subform" action="/catalog" method="post">
-                  <button class="sub"type="submit" name="like"><img class="like" src="img/Like.png" alt="rh"></button>
+                <form class="subform" action="/like" method="get">
+                  <button class="sub" type="submit" name="like" th:value="${idea.id}"><img class="like" src="img/Like.png" alt="rh"></button>
                 </form>
               </ul>
               <ul >
