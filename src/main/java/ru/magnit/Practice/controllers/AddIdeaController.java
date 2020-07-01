@@ -38,14 +38,18 @@ public class AddIdeaController {
     ) {
         if (sol == null || por == null) return "add";
         ArrayList<Boolean> arr = new ArrayList<>();
-        arr.add(StringFieldValidator.isNumbersInString(name));
-        arr.add(StringFieldValidator.isNumbersInString(lastName));
+        arr.add(StringFieldValidator.isNumbersInString(name) || name.isEmpty());
+        arr.add(StringFieldValidator.isNumbersInString(lastName) || lastName.isEmpty());
         arr.add(StringFieldValidator.isNumbersInString(middleName));
         arr.add(!StringFieldValidator.isEmail(email));
+        arr.add(title.isEmpty());
+        arr.add(description.isEmpty());
         model.addAttribute("nameError", arr.get(0));
         model.addAttribute("lastNameError", arr.get(1));
         model.addAttribute("middleNameError", arr.get(2));
         model.addAttribute("emailError", arr.get(3));
+        model.addAttribute("titleError", arr.get(4));
+        model.addAttribute("descriptionError", arr.get(5));
         if (arr.contains(true)) {
             return "add";
         }
