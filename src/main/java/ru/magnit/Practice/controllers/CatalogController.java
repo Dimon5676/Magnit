@@ -1,6 +1,11 @@
 package ru.magnit.Practice.controllers;
 
+import com.google.common.collect.Lists;
+import it.ozimov.springboot.mail.model.Email;
+import it.ozimov.springboot.mail.model.defaultimpl.DefaultEmail;
+import it.ozimov.springboot.mail.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +17,23 @@ import ru.magnit.Practice.comparators.RateComp;
 import ru.magnit.Practice.models.Idea;
 import ru.magnit.Practice.repos.IdeaRepository;
 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Controller
 public class CatalogController {
 
     @Autowired
     IdeaRepository ideaRepository;
+
+    @Value("${spring.mail.username}")
+    String mail;
+
+    @Autowired
+    public EmailService emailService;
 
     @GetMapping("/catalog")
     public String catalog(
@@ -119,7 +134,7 @@ public class CatalogController {
             @RequestParam String ideaChange,
             @RequestParam Long id,
             Model model
-    ) {
+    ) throws UnsupportedEncodingException, AddressException {
         if (ideaChange == null || id == null) return "redirect:/catalog";
         if (ideaChange.equalsIgnoreCase("waiting")) {
             Idea idea = ideaRepository.getById(id);
@@ -130,6 +145,7 @@ public class CatalogController {
             Idea idea = ideaRepository.getById(id);
             idea.setStatus("Рассмотрена");
             ideaRepository.save(idea);
+            sendEmailWithoutTemplating(idea.getLastName() + " " + idea.getName() + " " + idea.getMiddleName(), idea.getEmail());
         }
         if (ideaChange.equalsIgnoreCase("delete")) {
             Idea idea = ideaRepository.getById(id);
@@ -138,4 +154,14 @@ public class CatalogController {
         return "redirect:/catalog";
     }
 
+    public void sendEmailWithoutTemplating(String name, String mailTo) throws UnsupportedEncodingException, AddressException {
+        final Email email = DefaultEmail.builder()
+                .from(new InternetAddress(mail, "Magnit"))
+                .to(Lists.newArrayList(new InternetAddress(mailTo, "")))
+                .subject("It for people")
+                .body("Здравствуйте, " + name + ", статус вашей идеи на проекте \"IT для людей\" был изменён " + new Date())
+                .encoding("UTF-8").build();
+
+        emailService.send(email);
+    }
 }
