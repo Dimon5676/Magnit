@@ -51,9 +51,13 @@ public class CatalogController {
             }
             if (filter.equalsIgnoreCase("name")) {
                 for (Idea idea : ideas) {
-                    if ((idea.getLastName() + idea.getName() + idea.getLastName()).contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                    StringBuilder builder = new StringBuilder();
+                    builder.append(idea.getLastName());
+                    builder.append(idea.getName());
+                    builder.append(idea.getMiddleName());
+                    if (builder.toString().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
                         userIdeas.add(idea);
-                    } else if ((idea.getLastName() + idea.getName() + idea.getLastName()).contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                    } else if (builder.toString().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
                         adminIdeas.add(idea);
                     }
                 }
