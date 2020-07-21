@@ -57,9 +57,9 @@ public class CatalogController {
             }
             if (filter.equalsIgnoreCase("title")) {
                 for (Idea idea : ideas) {
-                    if (idea.getTitle().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                    if (idea.getTitle().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
                         userIdeas.add(idea);
-                    } else if (idea.getTitle().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                    } else if (idea.getTitle().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
                         adminIdeas.add(idea);
                     }
                 }
@@ -70,27 +70,27 @@ public class CatalogController {
                     builder.append(idea.getLastName());
                     builder.append(idea.getName());
                     builder.append(idea.getMiddleName());
-                    if (builder.toString().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                    if (builder.toString().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
                         userIdeas.add(idea);
-                    } else if (builder.toString().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                    } else if (builder.toString().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
                         adminIdeas.add(idea);
                     }
                 }
             }
             if (filter.equalsIgnoreCase("description")) {
                 for (Idea idea : ideas) {
-                    if (idea.getDescription().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                    if (idea.getDescription().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
                         userIdeas.add(idea);
-                    } else if (idea.getDescription().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                    } else if (idea.getDescription().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
                         adminIdeas.add(idea);
                     }
                 }
             }
             if (filter.equalsIgnoreCase("subdivision")) {
                 for (Idea idea : ideas) {
-                    if (idea.getSubdivision().contains(search) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
+                    if (idea.getSubdivision().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Рассмотрена")) {
                         userIdeas.add(idea);
-                    } else if (idea.getSubdivision().contains(search) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
+                    } else if (idea.getSubdivision().toLowerCase().contains(search.toLowerCase()) && idea.getStatus().equalsIgnoreCase("Не рассмотрена")) {
                         adminIdeas.add(idea);
                     }
                 }
