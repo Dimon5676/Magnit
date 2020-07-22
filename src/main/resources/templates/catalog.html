@@ -6,7 +6,6 @@
     <title>ИТ для людей - Магнит</title>
     <link rel="icon" href="img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maxim-scale=1.0, user-scalable=0 /">
-
   </head>
   <body>
     <div class="wrapper">
@@ -72,9 +71,7 @@
             </form>
             </div>
             </div>
-
           <div sec:authorize="isAuthenticated()" class="catalog">
-
             <div th:each="idea : ${adminIdeas}" class="info">
             <p th:text="${ 'Рейтинг:' + idea.rate}"class="rat">Рейтинг</p>
               <ul >
@@ -89,7 +86,6 @@
               </ul>
               <form class="subform" action="/catalog" method="post">
               <ul sec:authorize="isAuthenticated()" class="mail" >
-
                 <li  th:text="${idea.email}">Майл</li>
                 <li th:text="${idea.id}"></li>
                 <li >
@@ -112,10 +108,8 @@
               </form>
               <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
             </div>
-
           </div>
             <div class="catalog">
-
             <div th:each="idea : ${userIdeas}" class="info">
             <p th:text="${ 'Рейтинг:' + idea.rate}"class="rat">Рейтинг</p>
               <ul >
@@ -153,9 +147,7 @@
               </form>
               <p  class="description" th:text="${idea.description}">ОписаниеОписаниеОписание</p>
             </div>
-
           </div>
-
         </div>
           <footer class="footer">
             <div class="conteiner">
@@ -165,7 +157,5 @@
             </div>
           </footer>
     </div>
-
-
   </body>
 </html>
